@@ -1,0 +1,17 @@
+FPS option to display in status bar
+
+Add basic menu actions and keyboard shortcuts
+
+Add IWYU
+
+Split shaders into own files (.frag, .vertex)
+
+Split TriangleWidget into own file.
+
+Enable a bunch of good warnings
+
+Clang-format
+
+Clang-format check in github actions
+
+Build check in github actions
