@@ -2,6 +2,10 @@
 
 #include <QMainWindow>
 #include <qtmetamacros.h>
+#include <QElapsedTimer>
+#include <QTimer>
+#include <QAtomicInteger>
+#include <qgenericatomic.h>
 
 class ExtraWindow;
 
@@ -28,9 +32,18 @@ private slots:
   void on_actionToolsShow_triggered();
   void on_actionAbout_triggered();
 
+  void onFrameSwapped();
+  void updateFPS();
+
 private:
   Ui::MainWindow ui;
 
   ExtraWindow *m_ExtraWindow;
+  QTimer fpsTimer;
+  QElapsedTimer fpsElapsedTimer;
+  QAtomicInteger<int> frameCount;
+
   void showAboutDialog();
+  void setupFPSCounter();
+  void teardownFPSCounter();
 };

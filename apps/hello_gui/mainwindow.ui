@@ -153,7 +153,10 @@
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Checkbox</string>
+    <string>Show FPS</string>
+   </property>
+   <property name="statusTip">
+     <string>Display this window's FPS in the status bar</string>
    </property>
   </action>
   <action name="actionUndo">
