@@ -29,4 +29,5 @@ private:
   void setupStandardFileMenu();
   void setupStandardEditMenu();
   void setupStandardHelpMenu();
+  void showAboutDialog();
 };

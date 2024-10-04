@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include <QMessageBox>
 
 void MainWindowForm::setupStandardFileMenu() {
   QAction *action;
@@ -117,6 +118,17 @@ void MainWindowForm::setupStandardHelpMenu() {
   }
 }
 
+void MainWindowForm::showAboutDialog() {
+  QMessageBox::about(
+      this, tr("About Hello GUI"),
+      tr("<h2>Hello GUI 0.1</h2>"
+         "<p>Copyright &copy; 2024 Jaeden Amero</p>"
+         "<p>Hello GUI is a sample program to demonstrate "
+         "Qt features.</p>"
+         "<p>For more information, visit "
+         "<a href='http://www.patater.com'>www.patater.com</a></p>"));
+}
+
 MainWindowForm::MainWindowForm(QMainWindow *parent) : QMainWindow(parent) {
   ui.setupUi(this);
 
@@ -172,4 +184,4 @@ void MainWindowForm::on_actionSelect_All_triggered() {
 
 void MainWindowForm::on_actionCheckbox_triggered() {}
 
-void MainWindowForm::on_actionAbout_triggered() {}
+void MainWindowForm::on_actionAbout_triggered() { showAboutDialog(); }
