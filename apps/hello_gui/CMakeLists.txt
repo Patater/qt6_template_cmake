@@ -10,10 +10,13 @@ find_package(Qt6 REQUIRED COMPONENTS
 )
 qt_standard_project_setup()
 
+set(CMAKE_AUTORCC ON)
+
 qt_add_executable(hello_gui
     mainwindow.ui
     mainwindow.cpp
     main.cpp
+    resources.qrc
 )
 
 target_link_libraries(hello_gui PRIVATE
