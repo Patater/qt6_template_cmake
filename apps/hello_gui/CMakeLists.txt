@@ -31,3 +31,5 @@ set_target_properties(hello_gui PROPERTIES
     WIN32_EXECUTABLE ON
     MACOSX_BUNDLE ON
 )
+
+enable_iwyu(hello_gui)

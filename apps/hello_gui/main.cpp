@@ -1,13 +1,21 @@
 #include "mainwindow.h"
 
+#include <QDebug>
+#include <qlogging.h>
+#include <QMatrix4x4>
+#include <QOpenGLContext>
+#include <QSurfaceFormat>
+#include <qtypes.h>
 #include <QApplication>
 #include <QOpenGLBuffer>
 #include <QOpenGLFunctions_3_3_Core>
 #include <QOpenGLShaderProgram>
 #include <QOpenGLVertexArrayObject>
 #include <QOpenGLWidget>
+#include <QtGui/qopengl.h>
 #include <QScreen>
-#include <QWidget>
+
+class QWidget;
 
 static const char *vertexShaderSource =
     "#version 330 core\n"

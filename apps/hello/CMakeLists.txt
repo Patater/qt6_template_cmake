@@ -9,3 +9,5 @@ qt_add_executable(hello
 )
 
 target_link_libraries(hello PRIVATE Qt6::Core)
+
+enable_iwyu(hello)

@@ -1,6 +1,7 @@
 #include "ui_mainwindow.h"
 
 #include <QMainWindow>
+#include <qtmetamacros.h>
 
 class MainWindowForm : public QMainWindow {
   Q_OBJECT

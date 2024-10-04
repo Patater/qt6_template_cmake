@@ -1,4 +1,10 @@
 #include "mainwindow.h"
+#include <QAction>
+#include <QApplication>
+#include <QIcon>
+#include <QKeySequence>
+#include <QMetaObject>
+#include <QWidget>
 #include <QMessageBox>
 
 void MainWindowForm::setupStandardFileMenu() {
