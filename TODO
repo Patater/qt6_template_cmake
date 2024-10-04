@@ -1,7 +1,5 @@
 FPS option to display in status bar
 
-Add basic menu actions and keyboard shortcuts
-
 Add IWYU
 
 Split shaders into own files (.frag, .vertex)
