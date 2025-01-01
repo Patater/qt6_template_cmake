@@ -111,3 +111,9 @@ void TriangleWidget::paintGL() {
 
   update();
 }
+
+void TriangleWidget::showEvent(QShowEvent *event) {
+  QOpenGLWidget::showEvent(event);
+  m_frame = 0; // Reset animation
+  update();    // Kick off the render loop again
+}

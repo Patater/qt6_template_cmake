@@ -13,12 +13,14 @@ class QOpenGLShaderProgram;
 class TriangleWidget : public QOpenGLWidget,
                        protected QOpenGLFunctions_3_3_Core {
 public:
-  TriangleWidget(QWidget *parent = nullptr) : QOpenGLWidget(parent) {}
+  TriangleWidget(QWidget *parent = nullptr)
+      : QOpenGLWidget(parent), m_frame(0) {}
 
 protected:
   void initializeGL() override;
   void resizeGL(int w, int h) override;
   void paintGL() override;
+  void showEvent(QShowEvent *event) override;
 
 private:
   int m_frame = 0;
