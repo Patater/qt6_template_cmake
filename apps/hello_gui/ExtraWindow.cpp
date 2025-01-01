@@ -18,3 +18,11 @@ ExtraWindow::ExtraWindow(QWidget *parent) : QWidget(parent, Qt::Window) {
   // Enable keyboard focus
   setFocusPolicy(Qt::StrongFocus);
 }
+
+void ExtraWindow::keyPressEvent(QKeyEvent *event) {
+  QWidget::keyPressEvent(event);
+}
+
+void ExtraWindow::keyReleaseEvent(QKeyEvent *event) {
+  QWidget::keyReleaseEvent(event);
+}

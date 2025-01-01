@@ -9,6 +9,10 @@ class ExtraWindow : public QWidget {
 
 public:
   explicit ExtraWindow(QWidget *parent = nullptr);
+
+protected:
+  void keyPressEvent(QKeyEvent *event) override;
+  void keyReleaseEvent(QKeyEvent *event) override;
 };
 
 #endif
