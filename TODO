@@ -7,3 +7,10 @@ Clang-format
 Clang-format check in github actions
 
 Build check in github actions
+
+
+Use pure fragment shader in extra window
+- ShaderToyWidget takes fragment shader path to construct
+
+Mouse coordinates relative position send to shader
+Other shadertoy-like inputs passed to shader
