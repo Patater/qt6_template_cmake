@@ -1,7 +1,5 @@
 FPS option to display in status bar
 
-Split TriangleWidget into own file.
-
 Enable a bunch of good warnings
 
 Clang-format
