@@ -33,3 +33,26 @@ set_target_properties(hello_gui PROPERTIES
 )
 
 enable_iwyu(hello_gui)
+
+#
+# Copy shaders to the output directory
+#
+add_custom_target(copy-vertex-shader ALL
+    DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/shaders/vertex.vert)
+add_custom_command(
+    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/shaders/vertex.vert
+    COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_CURRENT_SOURCE_DIR}/shaders/vertex.vert
+        ${CMAKE_CURRENT_BINARY_DIR}/shaders/vertex.vert
+    DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/shaders/vertex.vert
+)
+
+add_custom_target(copy-fragment-shader ALL
+    DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/shaders/fragment.frag)
+add_custom_command(
+    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/shaders/fragment.frag
+    COMMAND ${CMAKE_COMMAND} -E copy
+        ${CMAKE_CURRENT_SOURCE_DIR}/shaders/fragment.frag
+        ${CMAKE_CURRENT_BINARY_DIR}/shaders/fragment.frag
+    DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/shaders/fragment.frag
+)

@@ -17,23 +17,8 @@
 
 class QWidget;
 
-static const char *vertexShaderSource =
-    "#version 330 core\n"
-    "in vec3 posAttr;\n"
-    "in vec3 colAttr;\n"
-    "out vec3 col;\n"
-    "uniform mat4 matrix;\n"
-    "void main() {\n"
-    "   col = colAttr;\n"
-    "   gl_Position = matrix * vec4(posAttr, 1.0f);\n"
-    "}\n";
-
-static const char *fragmentShaderSource = "#version 330 core\n"
-                                          "in vec3 col;\n"
-                                          "out vec4 fragColor;\n"
-                                          "void main() {\n"
-                                          "   fragColor = vec4(col, 1.0f);\n"
-                                          "}\n";
+static const char *vertexShaderSource = "shaders/vertex.vert";
+static const char *fragmentShaderSource = "shaders/fragment.frag";
 
 class TriangleWidget : public QOpenGLWidget,
                        protected QOpenGLFunctions_3_3_Core {
@@ -68,13 +53,12 @@ void TriangleWidget::initializeGL() {
   glClearColor(8.0f / 79.0f, 8.0f / 79.0f, 8.0f / 79.0f, 1.0f);
 
   m_program = new QOpenGLShaderProgram(this);
-  success = m_program->addShaderFromSourceCode(QOpenGLShader::Vertex, vertexShaderSource);
+  success = m_program->addShaderFromSourceFile(QOpenGLShader::Vertex, vertexShaderSource);
   if (!success)
   {
     qDebug() << "Failed to compile vertex shader:" << m_program->log();
   }
-  success = m_program->addShaderFromSourceCode(QOpenGLShader::Fragment,
-                                     fragmentShaderSource);
+  success = m_program->addShaderFromSourceFile(QOpenGLShader::Fragment, fragmentShaderSource);
   if (!success)
   {
     qDebug() << "Failed to compile fragment shader:" << m_program->log();
