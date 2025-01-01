@@ -3,6 +3,8 @@
 #include <QMainWindow>
 #include <qtmetamacros.h>
 
+class ExtraWindow;
+
 class MainWindowForm : public QMainWindow {
   Q_OBJECT
 
@@ -23,9 +25,12 @@ private slots:
   void on_actionDelete_triggered();
   void on_actionSelect_All_triggered();
   void on_actionCheckbox_triggered();
+  void on_actionToolsShow_triggered();
   void on_actionAbout_triggered();
 
 private:
   Ui::MainWindow ui;
+
+  ExtraWindow *m_ExtraWindow;
   void showAboutDialog();
 };

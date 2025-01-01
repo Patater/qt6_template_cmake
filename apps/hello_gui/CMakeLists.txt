@@ -13,6 +13,7 @@ qt_standard_project_setup()
 set(CMAKE_AUTORCC ON)
 
 qt_add_executable(hello_gui
+    ExtraWindow.cpp
     TriangleWidget.cpp
     mainwindow.ui
     mainwindow.cpp

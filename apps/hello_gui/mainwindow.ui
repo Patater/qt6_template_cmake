@@ -59,6 +59,12 @@
     </property>
     <addaction name="actionCheckbox"/>
    </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>&amp;Tools</string>
+    </property>
+    <addaction name="actionToolsShow"/>
+   </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>&amp;Help</string>
@@ -68,6 +74,7 @@
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuView"/>
+   <addaction name="menuTools"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -245,6 +252,14 @@
    </property>
    <property name="statusTip">
      <string>Select all items</string>
+   </property>
+  </action>
+  <action name="actionToolsShow">
+   <property name="text">
+    <string>&amp;Show other...</string>
+   </property>
+   <property name="statusTip">
+     <string>Show a different shader</string>
    </property>
   </action>
   <action name="actionAbout">

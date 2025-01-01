@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "ExtraWindow.h"
 #include <QApplication>
 #include <QWidget>
 #include <QMessageBox>
@@ -15,7 +16,8 @@ void MainWindowForm::showAboutDialog() {
          "<a href='http://www.patater.com'>www.patater.com</a></p>"));
 }
 
-MainWindowForm::MainWindowForm(QMainWindow *parent) : QMainWindow(parent) {
+MainWindowForm::MainWindowForm(QMainWindow *parent)
+    : QMainWindow(parent), m_ExtraWindow(nullptr) {
   ui.setupUi(this);
 }
 
@@ -64,5 +66,18 @@ void MainWindowForm::on_actionSelect_All_triggered() {
 }
 
 void MainWindowForm::on_actionCheckbox_triggered() {}
+
+void MainWindowForm::on_actionToolsShow_triggered() {
+  if (!m_ExtraWindow) {
+    m_ExtraWindow = new ExtraWindow(this);
+
+    // Connect window's destroyed signal to null our pointer
+    connect(m_ExtraWindow, &QWidget::destroyed,
+            [this]() { m_ExtraWindow = nullptr; });
+  }
+
+  m_ExtraWindow->show();
+  m_ExtraWindow->activateWindow();
+}
 
 void MainWindowForm::on_actionAbout_triggered() { showAboutDialog(); }
