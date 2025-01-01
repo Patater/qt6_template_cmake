@@ -27,8 +27,5 @@ private slots:
 
 private:
   Ui::MainWindow ui;
-  void setupStandardFileMenu();
-  void setupStandardEditMenu();
-  void setupStandardHelpMenu();
   void showAboutDialog();
 };

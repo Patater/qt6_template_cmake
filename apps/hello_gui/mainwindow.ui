@@ -31,7 +31,7 @@
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>&amp;File</string>
     </property>
     <addaction name="actionNew"/>
     <addaction name="actionOpen"/>
@@ -42,7 +42,7 @@
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
-     <string>Edit</string>
+     <string>&amp;Edit</string>
     </property>
     <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
@@ -55,13 +55,13 @@
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
-     <string>View</string>
+     <string>&amp;View</string>
     </property>
     <addaction name="actionCheckbox"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
-     <string>Help</string>
+     <string>&amp;Help</string>
     </property>
     <addaction name="actionAbout"/>
    </widget>
@@ -73,30 +73,72 @@
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionQuit">
    <property name="text">
-    <string>Quit</string>
+    <string>&amp;Quit</string>
+   </property>
+   <property name="icon">
+     <iconset theme="application-exit"/>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Q</string>
+     <string>Ctrl+Q</string>
+   </property>
+   <property name="statusTip">
+     <string>Exit the application</string>
    </property>
   </action>
   <action name="actionNew">
    <property name="text">
-    <string>New...</string>
+    <string>&amp;New...</string>
+   </property>
+   <property name="icon">
+     <iconset theme="document-new"/>
+   </property>
+   <property name="shortcut">
+     <string>Ctrl+N</string>
+   </property>
+   <property name="statusTip">
+     <string>Create a new file</string>
    </property>
   </action>
   <action name="actionOpen">
    <property name="text">
-    <string>Open...</string>
+    <string>&amp;Open...</string>
+   </property>
+   <property name="icon">
+     <iconset theme="document-open"/>
+   </property>
+   <property name="shortcut">
+     <string>Ctrl+O</string>
+   </property>
+   <property name="statusTip">
+     <string>Open an existing file</string>
    </property>
   </action>
   <action name="actionSave">
    <property name="text">
-    <string>Save...</string>
+    <string>&amp;Save...</string>
+   </property>
+   <property name="icon">
+     <iconset theme="document-save"/>
+   </property>
+   <property name="shortcut">
+     <string>Ctrl+S</string>
+   </property>
+   <property name="statusTip">
+     <string>Save the document to disk</string>
    </property>
   </action>
   <action name="actionClose">
    <property name="text">
-    <string>Close</string>
+    <string>&amp;Close</string>
+   </property>
+   <property name="icon">
+     <iconset theme="document-close"/>
+   </property>
+   <property name="shortcut">
+     <string>Ctrl+W</string>
+   </property>
+   <property name="statusTip">
+     <string>Close the current document</string>
    </property>
   </action>
   <action name="actionCheckbox">
@@ -109,42 +151,111 @@
   </action>
   <action name="actionUndo">
    <property name="text">
-    <string>Undo</string>
+    <string>&amp;Undo</string>
+   </property>
+   <property name="icon">
+     <iconset theme="edit-undo"/>
+   </property>
+   <property name="shortcut">
+     <string>Ctrl+U</string>
+   </property>
+   <property name="statusTip">
+     <string>Undo the last operation</string>
    </property>
   </action>
   <action name="actionRedo">
    <property name="text">
-    <string>Redo</string>
+    <string>&amp;Redo</string>
+   </property>
+   <property name="icon">
+     <iconset theme="edit-redo"/>
+   </property>
+   <property name="shortcut">
+     <string>Ctrl+Shift+Z</string>
+   </property>
+   <property name="statusTip">
+     <string>Redo the last operation</string>
    </property>
   </action>
   <action name="actionCut">
    <property name="text">
-    <string>Cut</string>
+    <string>Cu&amp;t</string>
+   </property>
+   <property name="icon">
+     <iconset theme="edit-cut"/>
+   </property>
+   <property name="shortcut">
+     <string>Ctrl+X</string>
+   </property>
+   <property name="statusTip">
+     <string>Cut the current selection's contents to the clipboard</string>
    </property>
   </action>
   <action name="actionCopy">
    <property name="text">
-    <string>Copy</string>
+    <string>&amp;Copy</string>
+   </property>
+   <property name="icon">
+     <iconset theme="edit-copy"/>
+   </property>
+   <property name="shortcut">
+     <string>Ctrl+C</string>
+   </property>
+   <property name="statusTip">
+     <string>Copy the current selection's contents to the clipboard</string>
    </property>
   </action>
   <action name="actionPaste">
    <property name="text">
-    <string>Paste</string>
+    <string>&amp;Paste</string>
+   </property>
+   <property name="icon">
+     <iconset theme="edit-paste"/>
+   </property>
+   <property name="shortcut">
+     <string>Ctrl+V</string>
+   </property>
+   <property name="statusTip">
+     <string>Paste the clipboard's contents into the current selection</string>
    </property>
   </action>
   <action name="actionDelete">
    <property name="text">
-    <string>Delete</string>
+    <string>&amp;Delete</string>
+   </property>
+   <property name="icon">
+     <iconset theme="edit-delete"/>
+   </property>
+   <property name="shortcut">
+     <string>Del, Ctrl+D</string>
+   </property>
+   <property name="statusTip">
+     <string>Delete the current selection</string>
    </property>
   </action>
   <action name="actionSelect_All">
    <property name="text">
-    <string>Select All</string>
+    <string>Select &amp;All</string>
+   </property>
+   <property name="icon">
+     <iconset theme="edit-select-all"/>
+   </property>
+   <property name="shortcut">
+     <string>Ctrl+A</string>
+   </property>
+   <property name="statusTip">
+     <string>Select all items</string>
    </property>
   </action>
   <action name="actionAbout">
+   <property name="icon">
+     <iconset theme="help-about"/>
+   </property>
    <property name="text">
-    <string>About...</string>
+     <string>&amp;About...</string>
+   </property>
+   <property name="statusTip">
+     <string>Show the application's About box</string>
    </property>
   </action>
  </widget>
