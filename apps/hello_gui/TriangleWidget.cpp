@@ -11,6 +11,17 @@
 static const char *vertexShaderSource = "shaders/vertex.vert";
 static const char *fragmentShaderSource = "shaders/fragment.frag";
 
+TriangleWidget::TriangleWidget(QWidget *parent)
+    : QOpenGLWidget(parent), m_time(0), m_timer(this) {
+
+  connect(&m_timer, &QTimer::timeout, this, &TriangleWidget::updateFrame);
+  m_elapsedTimer.restart();
+  m_targetFrameRate = screen()->refreshRate();
+  double period = 1.0 / m_targetFrameRate;
+  double period_ms = period * 1000.0;
+  m_timer.start(period_ms);
+}
+
 void TriangleWidget::initializeGL() {
   bool success;
 
@@ -97,23 +108,25 @@ void TriangleWidget::paintGL() {
   float aspect = float(width()) / float(height());
   matrix.perspective(60.0f, aspect, 0.1f, 100.0f);
   matrix.translate(0, 0, -2.0);
-  matrix.rotate(20.0f * m_frame / screen()->refreshRate(), 1, 0, 0);
-  matrix.rotate(30.0f * m_frame / screen()->refreshRate(), 0, 0, 1);
-  matrix.rotate(50.0f * m_frame / screen()->refreshRate(), 0, 1, 0);
+  matrix.rotate(20.0f * m_time / m_targetFrameRate, 1, 0, 0);
+  matrix.rotate(30.0f * m_time / m_targetFrameRate, 0, 0, 1);
+  matrix.rotate(50.0f * m_time / m_targetFrameRate, 0, 1, 0);
   m_program->setUniformValue(m_matrixUniform, matrix);
 
   glDrawArrays(GL_TRIANGLES, 0, 3);
 
   m_vao.release();
   m_program->release();
-
-  ++m_frame;
-
-  update();
 }
 
 void TriangleWidget::showEvent(QShowEvent *event) {
   QOpenGLWidget::showEvent(event);
-  m_frame = 0; // Reset animation
-  update();    // Kick off the render loop again
+  m_time = 0.0; // Reset animation
+  update();
+}
+
+void TriangleWidget::updateFrame(void) {
+  qint64 elapsedMs = m_elapsedTimer.restart();
+  m_time += elapsedMs;
+  update();
 }
