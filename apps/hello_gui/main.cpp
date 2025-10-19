@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "TriangleWidget.h"
-#include "VSyncDriver.h"
 
 #include <QDebug>
 #include <qlogging.h>
